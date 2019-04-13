@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { Post } from './model/Post.model';
-
-
+import { Component  } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +7,17 @@ import { Post } from './model/Post.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'blog';
-   posts = [
-      new Post('Mon premier post',
-               'Welcome to Angular! Angular helps you build modern applications for the web, mobile, or desktop',
-               0 , new Date()),
-      new Post('Mon deuxieme post',
-               'Before you begin, make sure your development environment includes Node.js and an npm package manager'
-               , 0 , new Date()),
-      new Post('Encore post',
-                'You use the Angular CLI to create projects, generate application and library code',
-                 0 , new Date())
-  ];
+
+constructor() {
+const config = {
+        apiKey: 'AIzaSyBuzJWUZqw0DmiUIx3kOs7qJ-yrFoB6cBo',
+        authDomain: 'post-3a637.firebaseapp.com',
+        databaseURL: 'https://post-3a637.firebaseio.com',
+        projectId: 'post-3a637',
+        storageBucket: 'post-3a637.appspot.com',
+        messagingSenderId: '1033998808752'
+     };
+firebase.initializeApp(config);
+    }
 
 }

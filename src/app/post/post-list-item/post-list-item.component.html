@@ -2,12 +2,16 @@
                 'list-group-item-success': monPost.loveIts > 0,
                 'list-group-item-danger':  monPost.loveIts < 0}">
 <div class="pull-right">
-    <p>{{ monPost.created_at  | date:"MM/dd/yyyy, h:mm a" }}
+    <p>{{ monPost.created_at | date:"dd/MM/yyyy, h:mm:ss a" }}
     </p>
 
 </div>
   <h4> {{ monPost.title }}</h4>
   <p>{{ monPost.content }}</p>
-   <button type="button" class="btn btn-success" (click)="loveIt()">Love it </button>
-   <button type="button" class="btn btn-danger" (click)="dontLoveIt()">Don't love it</button>
+   <button type="button" class="btn btn-success" style="margin:5px;" (click)="loveIt(monPost)">Love it </button>
+   <button type="button" class="btn btn-danger" style="margin:5px;" (click)="dontLoveIt(monPost)">Don't love it</button>
+   <span>{{monPost.loveIts }}</span> 
+   <button type="button" class="btn btn-danger btn pull-right" (click)="deletePost(monPost)">
+       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    </button>
 </li>
